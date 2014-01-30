@@ -73,7 +73,7 @@ uint8_t serialBits[UART_COUNT][UART_BITS] = {{
 #elif defined(__AVR_ATmega168__)
 
 #define UART_COUNT 1
-#define UART_REGISTERS 5
+#define UART_REGISTERS 4
 #define UART_BITS 7
 volatile uint8_t *serialRegisters[UART_COUNT][UART_REGISTERS] = {{
     &UDR0,
