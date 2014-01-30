@@ -1,1 +1,13 @@
 .DS_Store
+*.swp
+*.eep
+*.elf
+*.hex
+*.lss
+*.lst
+*.map
+*.o
+*.a
+*.sym
+.dep/
+doc/
