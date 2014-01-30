@@ -180,6 +180,32 @@ uint8_t serialBits[UART_COUNT][UART_BITS] = {
 #define SERIALRECIEVEINTERRUPT3  USART3_RX_vect
 #define SERIALTRANSMITINTERRUPT3 USART3_UDRE_vect
 
+#elif  defined(__AVR_ATtiny2313__) || defined(__AVR_ATtiny2313A__) || defined(__AVR_ATtiny4313__) 
+
+#define UART_COUNT 1
+#define UART_REGISTERS 6
+#define UART_BITS 7
+volatile uint8_t * const  serialRegisters[UART_COUNT][UART_REGISTERS] = {{
+    &UDR,
+    &UCSRB,
+    &UCSRC,
+    &UCSRA,
+    &UBRRH,
+    &UBRRL 
+}};
+#define SERIALBAUDBIT 8
+uint8_t const serialBits[UART_COUNT][UART_BITS] = {{
+    UCSZ0,
+    UCSZ1,
+    RXCIE,
+    RXEN,
+    TXEN,
+    UDRIE,
+    UDRE
+}};
+#define SERIALRECIEVEINTERRUPT USART_RX_vect
+#define SERIALTRANSMITINTERRUPT USART_UDRE_vect
+
 #else
 #error "AvrSerialLibrary not compatible with your MCU!"
 #endif
