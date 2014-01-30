@@ -325,7 +325,7 @@ uint8_t serialTxBufferEmpty(uint8_t uart) {
     }
 }
 
-void serialReceiveInterrupt(uint8_t uart) {
+inline void serialReceiveInterrupt(uint8_t uart) {
     rxBuffer[uart][rxWrite[uart]] = *serialRegisters[uart][SERIALDATA];
     if (rxWrite[uart] < (RX_BUFFER_SIZE - 1)) {
         rxWrite[uart]++;
@@ -347,7 +347,7 @@ void serialReceiveInterrupt(uint8_t uart) {
 #endif
 }
 
-void serialTransmitInterrupt(uint8_t uart) {
+inline void serialTransmitInterrupt(uint8_t uart) {
 #ifdef FLOWCONTROL
     if (sendThisNext[uart]) {
         *serialRegisters[uart][SERIALDATA] = sendThisNext[uart];
