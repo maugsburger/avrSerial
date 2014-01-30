@@ -33,7 +33,7 @@ CSTANDARD = gnu99
 ISPPORT = usb
 ISPTYPE = avrisp2
 
-DOXYGEN = /Applications/Doxygen.app/Contents/Resources/doxygen
+DOXYGEN = doxygen
 
 # -----------------------------
 
