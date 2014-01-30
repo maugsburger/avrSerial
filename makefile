@@ -71,6 +71,8 @@ sizelibafter:
 libavrSerial.a: serial.o
 	avr-ar -c -r -s libavrSerial.a serial.o
 
+serial.o: serial.h serial_device.h
+
 %.o: %.c
 	avr-gcc -c $< -o $@ $(CARGS)
 
